@@ -1,3 +1,3 @@
 {
-    "ignore": ["db/pizze.json"]
+    "ignore": ["db/db-blog.json"]
 }

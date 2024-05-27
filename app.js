@@ -6,7 +6,10 @@ app.use(express.json());
 // importo il file di routing 
 const postRouter = require("./routers/postRouter");
 
-app.use('/', postRouter);
+app.use('/',res =>{
+    res.redirect('/posts');
+});
+app.use('/posts', postRouter);
 
 
 app.listen(port, () => {

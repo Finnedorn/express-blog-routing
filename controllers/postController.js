@@ -85,7 +85,24 @@ function show(req,res) {
     }
 };
 
+function create(req, res) {
+    res.format({
+        html: () => {
+            let newHtml = ``;
+            newHtml += `
+                <h5 class="text-center mb-3">Hai creato un nuova Ricetta!</h5>
+                <a href="http://localhost:8080/">< Torna alla pagina precedente</a>
+                `
+            res.send(pageContentReplacer(placeHolder, newHtml));
+        },
+        json: () => {
+            res.status(406).send("File richiesto non supportato");
+        }
+    })
+}
+
 module.exports = {
     index,
-    show
+    show,
+    create
 }

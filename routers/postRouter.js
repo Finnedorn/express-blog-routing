@@ -10,4 +10,9 @@ router.get("/", postController.index);
 
 router.get("/:slug", postController.show);
 
+// router.get("/:slug/download");
+
+router.get("/create", postController.create);
+
+
 module.exports = router;
