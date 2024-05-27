@@ -41,7 +41,6 @@ function index(req,res) {
         json: () => {
             res.json(blogPosts);
         }
-        
     })
 };
 
@@ -85,6 +84,17 @@ function show(req,res) {
     }
 };
 
+function download(req, res) {
+    const mySlug = decodeURIComponent(req.params.slug);
+    const slugPath = path.join(__dirname, "../public", `${mySlug}.jpeg`);
+    console.log(slugPath);
+    if(fs.existsSync(slugPath)){
+        res.download(slugPath,`${mySlug}.jpeg`);
+    }else {
+        res.status(404).send("file non trovato");
+    }
+};
+
 function create(req, res) {
     res.format({
         html: () => {
@@ -104,5 +114,6 @@ function create(req, res) {
 module.exports = {
     index,
     show,
+    download,
     create
 }

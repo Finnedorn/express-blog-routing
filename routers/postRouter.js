@@ -1,5 +1,3 @@
-const path = require("path");
-const fs = require("fs");
 const express = require("express");
 // importo il metodo di routing di express
 const router = express.Router();
@@ -10,9 +8,8 @@ router.get("/", postController.index);
 
 router.get("/:slug", postController.show);
 
-// router.get("/:slug/download");
+router.get("/:slug/download", postController.download);
 
 router.get("/create", postController.create);
-
 
 module.exports = router;

@@ -6,11 +6,11 @@ app.use(express.json());
 // importo il file di routing 
 const postRouter = require("./routers/postRouter");
 
-app.use('/',res =>{
-    res.redirect('/posts');
-});
 app.use('/posts', postRouter);
 
+app.use('/',(req,res) =>{
+    res.redirect('/posts');
+});
 
 app.listen(port, () => {
     console.log(`Sto runnando il server su http://localhost:${port}`);
